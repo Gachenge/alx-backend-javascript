@@ -1,3 +1,5 @@
+//condensed the internals to 1 line
+
 export default function getSumOfHoods(
   initialNumber,
   expansion1989 = 89,

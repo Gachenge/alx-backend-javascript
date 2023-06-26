@@ -1,3 +1,5 @@
+//function to use computed property names on the object
+
 function getCurrentYear() {
   const date = new Date();
   return date.getFullYear();

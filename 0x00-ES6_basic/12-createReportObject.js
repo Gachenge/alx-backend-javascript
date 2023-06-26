@@ -1,3 +1,5 @@
+//function whose parameter is the return value of the previous function
+
 export default function createReportObject(employeesList) {
   const allEmployees = {};
 

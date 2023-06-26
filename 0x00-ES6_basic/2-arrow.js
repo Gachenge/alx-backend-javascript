@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 
+// rewrite to use es6 arrow syntax
+
 export default function getNeighborhoodsList() {
   this.sanFranciscoNeighborhoods = ['SOMA', 'Union Square'];
 

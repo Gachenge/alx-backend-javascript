@@ -1,3 +1,5 @@
+//use template literal to substitute values provided
+
 export default function getSanFranciscoDescription() {
   const year = 2017;
   const budget = {

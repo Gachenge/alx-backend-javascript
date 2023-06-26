@@ -1,3 +1,4 @@
+// method properties in the object
 
 import getBudgetObject from './7-getBudgetObject.js';
 

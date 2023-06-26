@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
 
+// variables that will not be overwritten
+
 export default function taskBlock(trueOrFalse) {
   const task = false;
   const task2 = true;
