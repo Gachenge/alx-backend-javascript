@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+
 export default function getBudgetObject(income, gdp, capita) {
   const budget = {
     income,
@@ -5,5 +7,5 @@ export default function getBudgetObject(income, gdp, capita) {
     capita,
   };
 
-  return { budget };
+  return { income, gdp, capita };
 }
