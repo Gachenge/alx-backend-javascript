@@ -1,4 +1,6 @@
-//append to each using for...of
+/**
+ * append to each using for...of
+ */
 
 export default function appendToEachArrayValue(array, appendString) {
   const arr = [];

@@ -1,4 +1,6 @@
-//condensed the internals to 1 line
+/**
+ * condensed the internals to 1 line
+ */
 
 export default function getSumOfHoods(
   initialNumber,
