@@ -1,6 +1,5 @@
 /* eslint-disable no-unused-vars */
 
-import { resolve } from 'path';
 import signUpUser from './4-user-promise';
 import uploadPhoto from './5-photo-reject';
 
@@ -16,5 +15,6 @@ export default function handleProfileSignup(firstName, lastName, filename) {
         myarr.push({ status: element.status, value: element.reason });
       }
     });
+    return myarr;
   });
 }
