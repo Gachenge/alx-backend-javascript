@@ -1,6 +1,8 @@
-export default function getResponseFromAPI() {
-    const prom = new Promise((resolve, reject) => {
+/* eslint-disable no-unused-vars */
 
-    });
-    return prom;
-}  
+export default function getResponseFromAPI() {
+  const prom = new Promise((resolve, reject) => {
+
+  });
+  return prom;
+}
