@@ -25,9 +25,9 @@ function countStudents(path) {
           }
           num = i - 1;
         }
-        output += (`Number of students: ${num}\n`);
-        output += (`Number of students in CS: ${studentcs.length}. List: ${studentcs.join(', ')}\n`);
-        output += (`Number of students in SWE: ${studentswe.length}. List: ${studentswe.join(', ')}\n`);
+        output += `Number of students: ${num}\n`;
+        output += `Number of students in CS: ${studentcs.length}. List: ${studentcs.join(', ')}\n`;
+        output += `Number of students in SWE: ${studentswe.length}. List: ${studentswe.join(', ')}\n`;
       }
       resolve(output);
     });
@@ -42,7 +42,7 @@ app.get('/students', (req, res) => {
   countStudents(process.argv[2].toString()).then((out) => {
     res.send(`This is the list of our students\n${out}`);
   }).catch(() => {
-    res.send('Cannot load the database');
+    res.send('This is the list of our students\nCannot load the database');
   });
 });
 
