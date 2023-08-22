@@ -43,7 +43,7 @@ const app = http.createServer((request, response) => {
   if (request.url === '/students') {
     response.write('This is the list of our students\n');
     countStudents(process.argv[2].toString()).then((out) => {
-      response.end(out);
+      response.end(out.slice(0, -1));
     }).catch(() => {
       response.statusCode = 404;
       response.end('Cannot load the database\n');
@@ -51,6 +51,6 @@ const app = http.createServer((request, response) => {
   }
 });
 
-app.listen(port)
+app.listen(port);
 
 module.exports = app;
