@@ -1,9 +1,11 @@
-const express = require('express')
 import AppController from '../controllers/AppController'
 import StudentsController from '../controllers/StudentsController'
 
-export default Routes = (app) => {
+const allRoutes = (app) => {
     app.get("/", AppController.getHomepage)
     app.get("/students", StudentsController.getAllStudents)
-    app.get("/students:major", StudentsController.getAllStudentsByMajor)
+    app.get("/students/:major", StudentsController.getAllStudentsByMajor)
 }
+
+export default allRoutes;
+module.exports = allRoutes;

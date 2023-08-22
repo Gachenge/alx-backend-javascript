@@ -1,36 +1,33 @@
-const { rejects } = require('assert');
-const { error } = require('console');
-const fs = require('fs')
+const fs = require('fs');
 
-function readDatabase(path){
-    let num = 0;
-    let students = [];
-    let student = [];
-
+function readDatabase(path) {
     return new Promise((resolve, reject) => {
         fs.readFile(path, (error, data) => {
             if (error){
-                reject(Error)
+                reject(error)
             }
             else {
                 const lines = data.toString().split('\n');
-                for (let i=0; i < lines.length; i+=1){
-                    const line = lines[i].toString().split(',');
-                    if (line[3] == 'CS'){
-                        students.push(line[0]);
+                const studentField = {
+                    CS: [],
+                    SWE: []
+                };
+                for (const line of lines) {
+                    const parts = line.split(',');
+                    const firstName = parts[0];
+                    const field = parts[3];
+
+                    if (field === 'CS'){
+                        studentField.CS.push(firstName);
                     }
-                    else if (line[3] == 'SWE'){
-                        student.push(line[0]);
+                    else if (field === 'SWE') {
+                        studentField.SWE.push(firstName);
                     }
-                    num = i-1;
                 }
-                console.log(`Number of students: ${num}`);
-                console.log(`Number of students in CS: ${students.length}. List: ${students}`)
-                console.log(`Number of students in SWE: ${student.length}. List: ${student}`)
+                resolve(studentField);
             }
-            resolve(data);
         })
     })
 }
 
-module.exports = readDatabase;
+module.exports = readDatabase
