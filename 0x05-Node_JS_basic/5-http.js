@@ -12,7 +12,7 @@ function countStudents(path) {
   return new Promise((resolve, reject) => {
     fs.readFile(path, (error, data) => {
       if (error) {
-        reject(Error('Cannot load the database'));
+        reject(error);
       } else {
         const lines = data.toString().split('\n');
         for (let i = 0; i < lines.length; i += 1) {
@@ -43,10 +43,10 @@ const app = http.createServer((request, response) => {
   if (request.url === '/students') {
     response.write('This is the list of our students\n');
     countStudents(process.argv[2].toString()).then((out) => {
-      response.end(out.slice(0, -1));
+      response.end(out);
     }).catch(() => {
       response.statusCode = 404;
-      response.end('Cannot load the database\n');
+      response.end('Cannot load the database');
     });
   }
 });
