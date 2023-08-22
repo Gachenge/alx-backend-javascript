@@ -5,8 +5,8 @@ const port = 1245;
 
 function countStudents(path) {
   let num = 0;
-  const students = [];
-  const student = [];
+  const studentcs = [];
+  const studentswe = [];
   let output = '';
 
   return new Promise((resolve, reject) => {
@@ -18,15 +18,15 @@ function countStudents(path) {
         for (let i = 0; i < lines.length; i += 1) {
           const line = lines[i].toString().split(',');
           if (line[3] === 'CS') {
-            students.push(line[0]);
+            studentcs.push(line[0]);
           } else if (line[3] === 'SWE') {
-            student.push(line[0]);
+            studentswe.push(line[0]);
           }
           num = i - 1;
         }
         output += (`Number of students: ${num}\n`);
-        output += (`Number of students in CS: ${students.length}. List: ${students}\n`);
-        output += (`Number of students in SWE: ${student.length}. List: ${student}\n`);
+        output += (`Number of students in CS: ${studentcs.length}. List: ${studentcs.join(', ')}\n`);
+        output += (`Number of students in SWE: ${studentswe.length}. List: ${studentswe.join(', ')}\n`);
       }
       resolve(output);
     });
