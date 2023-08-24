@@ -16,7 +16,13 @@ app.get('/cart/:id([0-9]+)', (req, res) => {
 });
 
 app.get('/available_payments', (_req, res) => {
-  res.json({ payment_methods: { credit_cards: true, paypal: false }});
+  const obj = {
+    payment_methods: {
+      credit_cards: true,
+      paypal: false
+    }
+  }
+  res.json(obj);
 });
 
 app.post('/login', (req, res) => {
