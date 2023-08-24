@@ -30,10 +30,10 @@ describe('api tests', () => {
         })
     })
     it('test login with betty', (done) => {
-        request.post('http://localhost:7865/login', {json: {username: 'Betty'}},
+        request.post('http://localhost:7865/login', {json: {userName: 'Betty'}},
         (_error, resp, body) => {
             expect(resp.statusCode).to.be.equal(200);
-            expect(body).to.be.equal('Welcome Bettygit');
+            expect(body).to.be.equal('Welcome Betty');
             done();
         })
     })
