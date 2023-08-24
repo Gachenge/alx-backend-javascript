@@ -8,7 +8,8 @@ describe('sendPaymentRequestToApi', () => {
     const bond = sinon.spy(Utils);
 
     sendPaymentRequestToApi(100, 20);
-    expect(bond.calculateNumber.calledOnceWithExactly('SUM', 100, 20)).to.be.equal;
+    expect(bond.calculateNumber.calledWith('SUM', 100, 20)).to.be.equal;
+    expect(bond.calculateNumber.calledOnce).to.be.true;
     bond.calculateNumber.restore();
   });
 });

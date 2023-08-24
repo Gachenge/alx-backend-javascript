@@ -11,9 +11,9 @@ describe('api tests', () => {
         })
     })
     it('validate if id is a number', (done) => {
-        request.get('http://localhost:7865/cart/9', (error, response, body) => {
+        request.get('http://localhost:7865/cart/12', (error, response, body) => {
             expect(response.statusCode).to.be.equal(200);
-            expect(body).to.be.equal('Payment methods for cart 9');
+            expect(body).to.be.equal('Payment methods for cart 12');
             done();
         })
     })
@@ -25,6 +25,19 @@ describe('api tests', () => {
     })
     it('no cart id should return 404', (done) => {
         request.get('http://localhost:7865/cart/', (error, response, body) => {
+            expect(response.statusCode).to.be.equal(404);
+            done();
+        })
+    })
+    it('test with large cart id number', (done) => {
+        request.get('http://localhost:7865/cart/53', (error, response, body) => {
+            expect(response.statusCode).to.be.equal(200);
+            expect(body).to.be.equal('Payment methods for cart 53');
+            done();
+        })
+    })
+    it('test to get with negative cart id', (done) => {
+        request.get('http://localhost:7865/cart/-45', (error, response, body) => {
             expect(response.statusCode).to.be.equal(404);
             done();
         })
