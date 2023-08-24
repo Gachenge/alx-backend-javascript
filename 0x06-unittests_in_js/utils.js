@@ -3,19 +3,14 @@ const Utils = {
         if (type === 'SUM'){
             return(Math.round(a) + Math.round(b));
         }
-        else if (type === 'SUBTRACT') {
+        if (type === 'SUBTRACT') {
             return(Math.round(a) - Math.round(b));
         }
-        else if (type === 'DIVIDE') {
-            x = Math.round(b);
-            if (x === 0){
-                return("Error")
-            }
-            else{
-                return (Math.round(a)/x);
-            }
+        if (type === 'DIVIDE') {
+            return Math.round(b) === 0 ? 'Error' : Math.round(a) / Math.round(b);
         }
-    }
+        return 0;
+    },
 }
 
 module.exports = Utils;
