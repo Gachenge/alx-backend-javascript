@@ -1,6 +1,5 @@
 const { expect } = require('chai');
 const request = require('request');
-const { json } = require('body-parser');
 
 describe('api tests', () => {
     it('should test get / returns the correct response', (done) => {
@@ -18,13 +17,13 @@ describe('api tests', () => {
         })
     })
     it("invalid id should return a 404", (done) => {
-        request.get('http://localhost:7865/cart/cow', (_error, resp, body) => {
+        request.get('http://localhost:7865/cart/cow', (_error, resp, _body) => {
             expect(resp.statusCode).to.be.equal(404);
             done();
         })
     })
     it('no cart id should return 404', (done) => {
-        request.get('http://localhost:7865/cart/', (_error, resp, body) => {
+        request.get('http://localhost:7865/cart/', (_error, resp, _body) => {
             expect(resp.statusCode).to.be.equal(404);
             done();
         })
